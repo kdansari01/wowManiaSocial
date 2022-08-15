@@ -1,18 +1,20 @@
 import React from 'react'
 import "./Home.scss"
 import Feed from '../../componenet/feed/Feed'
-import RightBar from '../../componenet/rightBar/RightBar'
 import SideBar from '../../componenet/sideBar/SideBar'
 import TopBar from '../../componenet/TopBar/TopBar'
+import RightBar from '../../componenet/rightBar/RightBar'
 
 const Home = () => {
   return (
       <>
       <TopBar/>
-    <div className='homeContainer'>
+      <div className='homeContainer'>
       <SideBar/>
       <Feed/>
       <RightBar/>
+
+
     </div>
     </>
   )

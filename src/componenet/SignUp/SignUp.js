@@ -7,18 +7,27 @@ import logo from "../../assests/logo.png"
 // import Gif from "../../Data/68312-login.gif"
 import React, { useEffect, useRef } from 'react';
 import lottie from 'lottie-web';
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-    const container = useRef(null)
-
+    const container = useRef(null) 
+    const navigate = useNavigate()
+    
+    
+    useEffect(()=>{
+      const haveToken = !!localStorage.getItem('token')
+      if(haveToken){
+        navigate('/')
+      }
+    }, [])
+  
     useEffect(() => {
       lottie.loadAnimation({
         container: container.current,
         renderer: 'svg',
         loop: true,
         autoplay: true,
-        animationData: require('../../Data/107385-login.json')
+        animationData: require('../../AnimationData/107385-login.json')
   
       })
     }, [])

@@ -144,8 +144,10 @@ const TopBar = () => {
                 <ReportProblemIcon className="profileIcons" />
                 <span> Report a problem</span>
                 </div>
-               
-                <Button variant="outlined">Log out</Button>
+                <Button onClick={()=>{
+                  localStorage.removeItem('token')    
+                  window.location.reload()
+                }} variant="outlined">Log out</Button>
               </div>
             </div>
           </div>
