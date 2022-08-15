@@ -1,4 +1,4 @@
-import Login from "../LoginPage/Login"
+// import Login from "../LoginPage/Login"
 import "./right.scss"
 
 

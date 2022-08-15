@@ -26,24 +26,16 @@ const Login = () => {
   }, [])
 
 
-  const container = useRef(null)
 
-
-  useEffect(() => {
-    lottie.loadAnimation({
-      container: container.current,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      animationData: require('../../AnimationData/107385-login.json')
-    })
-  }, [])
 
 
   const handleChange = (e)=>{
     setUser(prev=>({...prev, [e.target.name]:e.target.value}))
     setErrors(prev=>({...prev, [e.target.name]:""}))
   }
+
+
+
 
   const loginApi = async()=>{
     try {
@@ -81,6 +73,21 @@ const Login = () => {
     loginApi()
   }
 
+
+
+
+  const container = useRef(null)
+  useEffect(() => {
+    lottie.loadAnimation({
+      container: container.current,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      animationData: require('../../AnimationData/107385-login.json')
+    })
+  }, [])
+
+  
   return (
     <div className="loginPage">
       <div className="loginPageWrapper">
@@ -112,8 +119,8 @@ const Login = () => {
                 name="email"
                 onChange={handleChange}
               />
-              {errors.email && <span className="text-danger">{errors.email}</span>}
-              <TextField  className="loginPassword col-12"
+              {errors.email && <span className="text-danger mt-0">{errors.email}</span>}
+              <TextField  className="loginPassword col-12 mt-2"
                 id="outlined-basic"
                 label="Password"
                 variant="outlined"
@@ -121,10 +128,10 @@ const Login = () => {
                 name="password"
                 onChange={handleChange}
               />
-              {errors.password && <span className="text-danger">{errors.password}</span>}
+              {errors.password && <span className="text-danger ">{errors.password}</span>}
            
               <div className="loginBtn">
-                <Button type='submit' variant="contained" className="col-12">
+                <Button type='submit' variant="contained" className="col-12 mt-3">
                     Login
                 </Button>
                 </div>

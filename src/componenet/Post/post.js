@@ -6,15 +6,16 @@ import CommentIcon from '@mui/icons-material/Comment';
 import SendIcon from '@mui/icons-material/Send';
 
 
-const Post = () => {
+const Post = ({ title, image, createdAt, createdBy }) => {
+  
   return (
     <div className="post">
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
             <img className="postUserImg" src={Profile} alt="profile"/>
-            <span className="postUserName">KD Ansari</span>
-            <span className="postTime">5 mins ago</span>
+            <span className="postUserName">{createdBy.name}</span>
+            <span className="postTime">{createdAt}</span>
           </div>
           <div className="postTopRight">
             <MoreVertIcon className="postHamburger"/>
@@ -22,9 +23,9 @@ const Post = () => {
           
         </div>
         <div className="postCenter">
-          <span className="postText">Hello! its my first post</span>
+          <span className="postText">ksjdjk skjdksjdk ksjdks ksdjks dkjskdjk kskdks skdjsk dksjdk skdjksjd ksjdkj ksdksdhfk sdkf shkhkf sdhkh</span>
           <div className="postImgWrapper">
-          <img className="postImg" src={Profile} alt="post"/>
+          <img className="postImg" src={image} alt="post"/>
 
           </div>
         </div>
