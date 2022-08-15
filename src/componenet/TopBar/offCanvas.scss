@@ -1,0 +1,39 @@
+.profileSection {
+    
+  .offcanvas-body {
+    //     height: 300px;
+    // width: 100%;
+    display: flex;
+    .profileList {
+      // height: 375px;
+      overflow-y:scroll ;
+      overflow-x: hidden;
+      &::-webkit-scrollbar{
+        // padding: 5px;
+        overflow: hidden;
+      }
+      .profilelistWrap {
+        padding: 10px;
+        display: block;
+        width: 400px;
+        // margin-bottom: 10px;
+        &:hover {
+          // background: rgb(238, 219, 137);
+          background: linear-gradient(
+            to left,
+            #0519377c,
+            #004d7a94,
+            #0087939d,
+            #00bf73a9,
+            #a8eb12
+          );
+          cursor: pointer;
+        }
+        .profileIcons {
+          font-size: 30px;
+            
+        }
+      }
+    }
+  }
+}

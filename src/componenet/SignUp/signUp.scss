@@ -1,0 +1,129 @@
+.signUpPage{
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    background-image: radial-gradient(circle, #9cc0f2, #8fabf4, #9193f0, #9f76e4, #b251cf);
+    // background-image: linear-gradient(to right, #ffffff, #e7e7f4, #cdd0e9, #b0bade, #8fa5d4);
+    
+        .signUpPageWrapper{
+            padding: 10px;
+            position: relative;
+    
+            .signUp_Page_Left{
+                float: left;
+               .signPageAnimation{
+                width: 400px;
+                height: 400px;
+                margin-left: 150px;
+                margin-top: 140px;
+                overflow: hidden;
+                // background: transparent;
+                
+               }
+               
+                
+    
+            }
+            .signUp_Page_Right{
+                background: white;
+                float: right;
+                margin-right: 100px;
+                margin-top: 60px;
+                padding: 10px;
+                // border: 1px solid gray;
+                // box-shadow: 5px 5px 10px (linear-gradient(to bottom, #b8c3d2, #a0b6bf, #90a8a7, #87998e, #838878));
+                box-shadow: 9px 11px 23px 0px rgb(19, 19, 20);
+                border-radius: 40px;
+                width: 450px;
+                min-height: 450px;
+                &:hover{
+                box-shadow: 10px 11px 23px 0px rgb(0, 0, 0);
+
+                    
+                }
+    
+                .signUp-logo-section{
+                    //  align-items: center;
+                    display: flex;
+                     justify-content: center !important;
+                     padding: 10px;
+                    //  border: 1px solid gray;
+    
+                    .signUpLogo{
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 50%;
+                        box-shadow: 5px 5px 10px gray;
+                       
+        
+                    }
+    
+                }
+                
+    
+                .signUp-section{
+    
+                //  border: 1px solid gray;
+                  padding: 10px;
+    
+                    .signUpHead{
+                        text-align: center;
+                        font-weight: bold;
+                        // font-size: 40px;
+                        color: rgba(131, 86, 34, 0.952);
+                    }
+                    .signUpBox{
+                        // position: relative;
+                    //  float: right;
+                    padding: 10px;
+    
+                    
+                       .signUpUserName{
+                        padding: 5px;
+                     
+                      }
+                       .signUpPassword{
+                        padding: 5px;
+                       }
+    
+                        .signUpBtn{
+                            margin-left: 5px;
+                            margin-bottom: 10px;
+                            width: 98%;
+                            // height: 80px;    
+                        }
+                    }
+                }
+                .loginPageSignUp{
+                    display: flex;
+    
+                    // padding: 5px;
+                    .GoForLogin{
+                        font-size: 15px;
+                        margin-left: 15px;
+                    }
+    
+                    .loginLink{
+                        margin-left: 5px;
+                        cursor: pointer;
+                        color: blue;
+                        // font-size: 16px;
+                        font-weight: bold;
+                        text-decoration: none;
+
+    
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+    
+                }
+               
+    
+    
+            }
+        }
+    
+        
+    }
+    
