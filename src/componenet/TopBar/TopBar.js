@@ -19,6 +19,7 @@ import LanguageIcon from '@mui/icons-material/Language';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import InfoIcon from '@mui/icons-material/Info';
 import ReportProblemIcon from '@mui/icons-material/ReportProblem';
+import CoPresentIcon from '@mui/icons-material/CoPresent';
 
 import logo from "/home/kdansari/WOW/social/src/assests/logo.png";
 const TopBar = () => {
@@ -96,6 +97,10 @@ const TopBar = () => {
             </div>
             <div className="offcanvas-body">
               <div className="profileList">
+              <div className="profilelistWrap">
+                <CoPresentIcon className="profileIcons" />
+                <span> My post</span>
+                </div>
                 <div className="profilelistWrap">
                 <Chat className="profileIcons" />
                 <span> Messages</span>

@@ -18,12 +18,11 @@ const Post = ({ title, image, createdAt, createdBy }) => {
             <span className="postTime">{createdAt}</span>
           </div>
           <div className="postTopRight">
-            <MoreVertIcon className="postHamburger"/>
+            <MoreVertIcon className="postHamburger "/>
           </div>
-          
         </div>
         <div className="postCenter">
-          <span className="postText">ksjdjk skjdksjdk ksjdks ksdjks dkjskdjk kskdks skdjsk dksjdk skdjksjd ksjdkj ksdksdhfk sdkf shkhkf sdhkh</span>
+          <span className="postText">{title}</span>
           <div className="postImgWrapper">
           <img className="postImg" src={image} alt="post"/>
 

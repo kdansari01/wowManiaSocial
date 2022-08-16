@@ -1,70 +1,156 @@
-import "./share.scss"
-import Img from "../../assests/kd.png"
-import IconButton from '@mui/material/IconButton';
-import PhotoCamera from '@mui/icons-material/PhotoCamera';
-import LabelIcon from '@mui/icons-material/Label';
-import PlaceIcon from '@mui/icons-material/Place';
-import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
-import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
-import { useState } from "react";
+import "./share.scss";
+import Img from "../../assests/kd.png";
+import IconButton from "@mui/material/IconButton";
+import PhotoCamera from "@mui/icons-material/PhotoCamera";
+import LabelIcon from "@mui/icons-material/Label";
+import PlaceIcon from "@mui/icons-material/Place";
+import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
+import Button from "@mui/material/Button";
+import SendIcon from "@mui/icons-material/Send";
+import { useEffect, useState } from "react";
 import { customFetch, METHODS } from "../../utils/customFetch";
-
+import { useUploadImage } from "../../Hooks/useImageUploader";
 
 const Share = () => {
-  const [title, setTitle] = useState()
-  const [image, setImage] = useState()
+  const [title, setTitle] = useState();
+  const [image, setImage] = useState();
+  const { handleUpload, url, loading } = useUploadImage();
 
-  const handleFile = (e)=>{
-    const file = e.target.files[0]
-    const url = URL.createObjectURL(file)
-    setImage(url)
-  } 
+  const handleFile = (e) => {
+    const file = e.target.files[0];
+    handleUpload({ file });
+  };
 
-  const saveNewPost = async(e)=>{
-    e.preventDefault()
-    console.log(title, image)
-    if(title && image){
+  console.log({ loading, url });
+  useEffect(() => {
+    if (!loading && url) {
+      setImage(url);
+    }
+  }, [loading, url]);
+
+  const saveNewPost = async (e) => {
+    e.preventDefault();
+    console.log(title, image);
+    if (title && image) {
       const data = await customFetch({
-        url:'private/post',
-        method:METHODS.POST,
-        isPrivate:true,
-        body : {
+        url: "private/post",
+        method: METHODS.POST,
+        isPrivate: true,
+        body: {
           title,
           image,
-        }
-      })
-      console.log(data)
+        },
+      });
+      console.log(data);
     }
-  }
+  };
 
   return (
     <form className="share" onSubmit={saveNewPost}>
       <div className="shareWrapper">
         <div className="shareTop">
-          <img src={Img} alt="" className="shareProfileImg"/>
-          <input onChange={(e)=>setTitle(e.target.value)} type="text" className="shareInpt" placeholder="whats your mind today........."/>
-
+          <img src={Img} alt="" className="shareProfileImg" />
+          <input
+            onChange={(e) => setTitle(e.target.value)}
+            type="text"
+            className="shareInpt"
+            placeholder="whats your mind today........."
+          />
         </div>
-        <hr className="shareHrline"/>
+        <hr className="shareHrline" />
         <div className="shareBottom">
           {/* <PermMediaIcon className="shareMedia"/> */}
-          <IconButton color="primary" aria-label="upload picture" component="label">
-         <input hidden accept="image" type="file" onChange={handleFile}/>
-         <PhotoCamera className="shareMediaIcon" />
-         </IconButton>
-          <span className="shareMediaTxt">Photo & Video</span>
-          <LabelIcon className="shareTag"/>
+          {/* <IconButton
+            color="primary"
+            aria-label="upload picture"
+            component="label"
+          >
+            <input hidden accept="file" type="file" onChange={handleFile} />
+            <PhotoCamera className="shareMediaIcon" />
+          </IconButton> */}
+          <button
+            type="button"
+            className="btn btn-modal "
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+          >
+            <IconButton
+            color="primary"
+            aria-label="upload picture"
+            component="label"
+          >
+            {/* <input hidden accept="file" type="file" onChange={handleFile} /> */}
+            <PhotoCamera className="shareMediaIcon" />
+          </IconButton>
+           Photo & Video
+          </button>
+
+          <div
+            className="modal fade"
+            id="staticBackdrop"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabindex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="staticBackdropLabel">
+                    Share your mood...
+                  </h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div className="modal-body">
+               {/* <PermMediaIcon className="shareMedia"/> */}
+
+               <IconButton
+                 color="primary"
+                aria-label="upload picture"
+                component="label"
+                >
+                <input hidden accept="file" type="file" onChange={handleFile} />
+                <PhotoCamera className="shareMediaIcon" />
+                Photo and video
+               </IconButton> 
+                </div>
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  {/* <button type="button" className="btn btn-primary">
+                    Understood
+                  </button> */}
+                </div>
+              </div>
+            </div>
+          </div>
+          <LabelIcon className="shareTag" />
           <span className="shareTagTxt">Tag</span>
-          <PlaceIcon className="shareLocationIcon"/>
+          <PlaceIcon className="shareLocationIcon" />
           <span className="shareLocation">Location</span>
-          <EmojiEmotionsIcon className="shareEmojiIcon"/>
+          <EmojiEmotionsIcon className="shareEmojiIcon" />
           <span className="shareFeelTxt">feelings</span>
-          <Button type='submit'  className="shareButton" variant="contained" endIcon={<SendIcon />}/>
         </div>
+        <Button
+          type="submit"
+          className="shareButton"
+          variant="contained"
+          endIcon={<SendIcon />}
+        />
       </div>
     </form>
-  )
-}
+  );
+};
 
-export default Share
+export default Share;
