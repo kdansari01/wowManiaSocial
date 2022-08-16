@@ -22,6 +22,7 @@ import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
 
 import logo from "/home/kdansari/WOW/social/src/assests/logo.png";
+import { NavLink } from "react-router-dom";
 const TopBar = () => {
   return (
     <div className="topBarContainer">
@@ -99,7 +100,7 @@ const TopBar = () => {
               <div className="profileList">
               <div className="profilelistWrap">
                 <CoPresentIcon className="profileIcons" />
-                <span> My post</span>
+                <NavLink className="text-decoration-none" to="/MyPost"> My post</NavLink>
                 </div>
                 <div className="profilelistWrap">
                 <Chat className="profileIcons" />

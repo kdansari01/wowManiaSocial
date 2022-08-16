@@ -1,5 +1,8 @@
 .rightBar{
     flex: 3;
+    height: calc(100vh);
+    // overflow-y: scroll;
+
 
     .rightBarWraper{
         padding: 10px;

@@ -5,6 +5,7 @@ import SignUp from "./componenet/SignUp/SignUp";
 // import Home from './pages/Home/Home';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home/Home";
+import MyPost from "./componenet/MyPost/MyPost";
 
 const ProtectedRoute = ({ children }) => {
   const isLoggedIn = !!localStorage.getItem("token");
@@ -18,7 +19,6 @@ const ProtectedRoute = ({ children }) => {
 function App() {
   return (
     <BrowserRouter>
-      {/* <TopBar/>     */}
 
       <Routes>
         <Route
@@ -31,6 +31,7 @@ function App() {
         />
         <Route path="/login" exact element={<Login />} />
         <Route path="/signUp" exact element={<SignUp />} />
+        <Route path="/myPost" exact element={<MyPost/>}/>
       </Routes>
     </BrowserRouter>
   );

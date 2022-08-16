@@ -4,6 +4,7 @@ import Feed from '../../componenet/feed/Feed'
 import SideBar from '../../componenet/sideBar/SideBar'
 import TopBar from '../../componenet/TopBar/TopBar'
 import RightBar from '../../componenet/rightBar/RightBar'
+// import MyPost from '../../componenet/MyPost/MyPost'
 
 const Home = () => {
   return (

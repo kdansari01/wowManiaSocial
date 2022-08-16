@@ -1,0 +1,48 @@
+.modal-content{
+    width: 500px;
+    height: 500px;
+    &:hover{
+        cursor: auto;
+    }
+
+    .modal-header{
+        background: skyblue;
+        
+        .shareProfileImg{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .modal-title{
+            // align-items: center;
+            margin-left: 10px;
+
+        }
+    }
+    .modal-body{
+        .modalInputSec{
+            .modalInput{
+                width: 100%;
+                height: 100px;
+                margin-top: -10px;
+                margin-bottom: -10px;
+                border: none;
+                &:focus{
+                    outline: none;
+                    // box-shadow: 2px 2px 10px gray;
+                }
+            }
+        }
+        .modalUploadingItems{
+            .mediaUpload{
+                border: none;
+                border-radius: 50%;
+                &:focus{
+                    outline: none;
+
+                }
+            }
+        }
+        
+    }
+}

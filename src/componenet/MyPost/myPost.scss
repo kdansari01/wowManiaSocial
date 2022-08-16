@@ -1,0 +1,191 @@
+
+.myPost{
+
+    .myPostWrapper{
+
+        .myPostBody{
+
+            .myPostTopBar{
+
+                .myPostTopBarSection{
+                    
+                    .backgroundImg{
+                        display: flex;
+                        margin-top:0 ;
+
+                        .profilebackgroundImg{
+                            width: 100%;
+                            height: 300px;
+                            object-fit: cover;
+                            z-index: -1;
+                        }
+                   
+
+                    }
+                    .myPostTopBarProfile{
+                        display: flex;
+                        justify-content: center;
+                        width: 70%;
+                        height: 400px;
+                        background: white;
+                        margin-left: 200px;
+                        margin-top: -100px;
+                        border: none;
+                        border-radius: 100px;
+                        box-shadow: 3px 2px 20px gray;
+                        z-index: 2;
+
+                        .myPostTopBarProfileBG{
+                            justify-content: center;
+
+                            .myPostTopBarProfileImg{
+                                // position: absolute;
+                                
+                                width: 250px;
+                                height: 250px;
+                                border-radius: 50%;
+                                border: 10px solid white;
+                                top: 56px;
+                                 
+                                margin-top: -110px;
+    
+    
+                            }
+                            .myPostTopBarUserName{
+                                text-align: center;
+                                margin-top: 10px;
+                                font-size: 30px;
+                                font-weight: bold;
+                            }
+    
+    
+                            .myPostTopBarProfileAbout{
+                                position: relative;
+                                text-align: center;
+                                // margin-top: 20px;
+                                // bottom: 10px;
+                                
+
+    
+                            }
+                        }
+                        
+                    }
+                }
+
+
+            }
+            .myPostLeftBar{
+                top: 100px;
+                flex: 3;
+                height: 100px;
+
+            }
+                .myPostListSections{
+                    margin: 30px 0;
+                    width: 400px;
+                    max-height: 600px;
+                    box-shadow: 10px 5px 10px gray;
+                    border-radius: 10px;
+                    overflow-y: hidden;
+                    object-fit: fill;
+                    float: right;
+                
+                    .myPostItem{
+                        padding: 10px;
+                
+                        .postTop{
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                
+                            .postTopLeft{
+                                display: flex;
+                                align-items: center;
+                
+                                .postUserImg{
+                                    width: 40px;
+                                    height: 40px;
+                                    border-radius: 50%;
+                                    object-fit: cover;
+                
+                                }
+                                .postUserName{
+                                    font-weight: 500;
+                                    font-size: 15px;
+                                    margin: 0 10px;
+                
+                
+                                }
+                                .postTime{
+                                    font-size: 12px;
+                                    opacity: .7;
+                                    z-index: -1;
+                
+                                }
+                            }
+                            .postTopRight{
+                
+                                display: flex;
+                                .postHamburger{
+                                    color: green;
+                                    cursor: pointer;
+                
+                                }
+                            }
+                        }
+                        .postCenter{
+                            // display: flex;
+                            // border: 2px solid black;
+                
+                
+                            .postText{
+                                margin-top: 15px;
+                            }
+                            .postImgWrapper{
+                                display: flex;               
+                                // position: relative;
+                                justify-content: center;
+                
+                              .postImg{
+                                min-width: 300px;
+                                height: 400px;
+                                margin-top: 50px;
+                                object-fit: cover;
+                                cursor: pointer;
+                            }
+                          }
+                        }
+                        .postBottom{
+                            padding: 10px;
+                            .postLikeHert{
+                                font-size: 30px;   
+                            margin-right: 10px;
+                            // color: white;
+                
+                           
+                            }
+                            .postComment{
+                                font-size: 30px;
+                             margin-right: 10px;
+                
+                
+                            }
+                            .postSend{
+                                font-size: 30px;
+                
+                
+                            }
+                
+                            .postLikePeople{
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                
+                }
+
+            
+        }
+    }
+}

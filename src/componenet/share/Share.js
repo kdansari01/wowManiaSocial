@@ -1,4 +1,5 @@
 import "./share.scss";
+
 import Img from "../../assests/kd.png";
 import IconButton from "@mui/material/IconButton";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
@@ -59,82 +60,99 @@ const Share = () => {
         </div>
         <hr className="shareHrline" />
         <div className="shareBottom">
-          {/* <PermMediaIcon className="shareMedia"/> */}
           {/* <IconButton
-            color="primary"
             aria-label="upload picture"
             component="label"
           >
+            <PhotoCamera className="shareMediaIcon" />
             <input hidden accept="file" type="file" onChange={handleFile} />
-            <PhotoCamera className="shareMediaIcon" />
-          </IconButton> */}
-          <button
-            type="button"
-            className="btn btn-modal "
-            data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop"
-          >
-            <IconButton
-            color="primary"
-            aria-label="upload picture"
-            component="label"
-          >
-            {/* <input hidden accept="file" type="file" onChange={handleFile} /> */}
-            <PhotoCamera className="shareMediaIcon" />
-          </IconButton>
-           Photo & Video
-          </button>
-
-          <div
-            className="modal fade"
-            id="staticBackdrop"
-            data-bs-backdrop="static"
-            data-bs-keyboard="false"
-            tabindex="-1"
-            aria-labelledby="staticBackdropLabel"
-            aria-hidden="true"
-          >
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="staticBackdropLabel">
-                    Share your mood...
-                  </h5>
-                  <button
-                    type="button"
-                    className="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div className="modal-body">
-               {/* <PermMediaIcon className="shareMedia"/> */}
-
-               <IconButton
-                 color="primary"
-                aria-label="upload picture"
-                component="label"
-                >
-                <input hidden accept="file" type="file" onChange={handleFile} />
+            Upload media
+          </IconButton>  */}
+          <div>
+            <button
+              type="button"
+              className="btn btn-modal "
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+            >
+              <IconButton aria-label="upload picture" component="label">
                 <PhotoCamera className="shareMediaIcon" />
-                Photo and video
-               </IconButton> 
-                </div>
-                <div className="modal-footer">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  {/* <button type="button" className="btn btn-primary">
-                    Understood
-                  </button> */}
+              </IconButton>
+              Photo & Video
+            </button>
+
+            <div
+              className="modal fade modal-size"
+              id="staticBackdrop"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+              tabindex="-1"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
+            >
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <img src={Img} alt="" className="shareProfileImg" />
+
+                    <span className="modal-title" id="staticBackdropLabel">
+                      Share your mood...
+                    </span>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div className="modal-body">
+                    <div className="modalInputSec">
+                      
+                      <input
+                        type="text"
+                        className="modalInput"
+                        placeholder="Type here somethings........"
+                      />
+                      <hr/>
+
+                    </div>
+                    <div classname="modalUploadingItems">
+                      
+                        <IconButton
+                      color="primary"
+                      aria-label="upload picture"
+                      component="label"
+                    >
+                      <input
+                      hidden
+                        accept="file"
+                        type="file"
+                        onChange={handleFile}
+                        className="mediaUpload"
+                      />
+                      <PhotoCamera className="shareMediaIcon" />
+                      {/* Photo and video */}
+                      __
+                    </IconButton>
+                       
+                    
+
+                    </div>
+                    
+                  </div>
+                  <div className="modal-footer">
+                    <Button
+                      type="submit"
+                      className="shareButton"
+                      variant="contained"
+                      endIcon={<SendIcon />}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+
           <LabelIcon className="shareTag" />
           <span className="shareTagTxt">Tag</span>
           <PlaceIcon className="shareLocationIcon" />
@@ -142,12 +160,6 @@ const Share = () => {
           <EmojiEmotionsIcon className="shareEmojiIcon" />
           <span className="shareFeelTxt">feelings</span>
         </div>
-        <Button
-          type="submit"
-          className="shareButton"
-          variant="contained"
-          endIcon={<SendIcon />}
-        />
       </div>
     </form>
   );
