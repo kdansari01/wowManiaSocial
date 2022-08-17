@@ -1,11 +1,15 @@
 
 .myPost{
+    height: 100vh;
 
     .myPostWrapper{
+        overflow: hidden;
 
         .myPostBody{
+            // display: flex;
 
             .myPostTopBar{
+                // display: flex;
 
                 .myPostTopBarSection{
                     
@@ -76,11 +80,17 @@
 
             }
             .myPostLeftBar{
-                top: 100px;
-                flex: 3;
-                height: 100px;
+                width: 300px;
+                height: 650px;
+                overflow: hidden;
+                background: gray;
+                margin-left: 10px;
+                border-top-right-radius:100px;
+                float: left;
+
 
             }
+          
                 .myPostListSections{
                     margin: 30px 0;
                     width: 400px;
@@ -90,7 +100,7 @@
                     overflow-y: hidden;
                     object-fit: fill;
                     float: right;
-                
+               
                     .myPostItem{
                         padding: 10px;
                 

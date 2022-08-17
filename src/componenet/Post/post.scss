@@ -2,10 +2,14 @@
     margin: 30px 0;
     width: 100%;
     max-height: 600px;
-    box-shadow: 10px 5px 10px gray;
+    border: 1px solid gray;
+    // box-shadow: 10px 5px 10px gray;
     border-radius: 10px;
     overflow-y: hidden;
     object-fit: fill;
+    &:hover{
+
+    }
 
     .postWrapper{
         padding: 10px;

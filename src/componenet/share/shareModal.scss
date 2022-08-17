@@ -1,6 +1,8 @@
 .modal-content{
     width: 500px;
-    height: 500px;
+    height: 550px;
+    border-bottom-left-radius: 80px;
+
     &:hover{
         cursor: auto;
     }
@@ -34,6 +36,7 @@
             }
         }
         .modalUploadingItems{
+            padding: 6px;
             .mediaUpload{
                 border: none;
                 border-radius: 50%;
@@ -41,6 +44,23 @@
                     outline: none;
 
                 }
+            }
+        }
+        .shareButton{
+            background: skyblue;
+            .shareButton{
+                border: none;
+               
+                &:hover{
+                    transform: translate3D(0,-1px,0) scale(1);
+
+                }
+                &:focus{
+                    outline: none;
+                }
+            }
+            .sendIcon{
+                width: 60px;
             }
         }
         

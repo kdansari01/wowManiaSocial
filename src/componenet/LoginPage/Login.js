@@ -86,7 +86,6 @@ const Login = () => {
       animationData: require('../../AnimationData/107385-login.json')
     })
   }, [])
-
   
   return (
     <div className="loginPage">

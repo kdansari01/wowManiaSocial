@@ -6,11 +6,15 @@ import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import LabelIcon from "@mui/icons-material/Label";
 import PlaceIcon from "@mui/icons-material/Place";
 import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
+import AddPhotoAlternateIcon from "@mui/icons-material/EmojiEmotions";
+import PermMediaIcon from "@mui/icons-material/PermMedia";
+
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import { useEffect, useState } from "react";
 import { customFetch, METHODS } from "../../utils/customFetch";
 import { useUploadImage } from "../../Hooks/useImageUploader";
+import { Fab, Icon } from "@mui/material";
 
 const Share = () => {
   const [title, setTitle] = useState();
@@ -105,49 +109,62 @@ const Share = () => {
                       aria-label="Close"
                     ></button>
                   </div>
-                  <div className="modal-body">
+                  <form className="modal-body">
                     <div className="modalInputSec">
-                      
                       <input
                         type="text"
                         className="modalInput"
                         placeholder="Type here somethings........"
                       />
-                      <hr/>
-
+                      <hr />
                     </div>
-                    <div classname="modalUploadingItems">
-                      
+                    <div className="modalUploadingItems">
+                      <Fab component="span" className="button">
                         <IconButton
-                      color="primary"
-                      aria-label="upload picture"
-                      component="label"
-                    >
-                      <input
-                      hidden
-                        accept="file"
-                        type="file"
-                        onChange={handleFile}
-                        className="mediaUpload"
-                      />
-                      <PhotoCamera className="shareMediaIcon" />
-                      {/* Photo and video */}
-                      __
-                    </IconButton>
-                       
-                    
-
+                          color="primary"
+                          aria-label="upload picture"
+                          component="label"
+                        >
+                          <input
+                            hidden
+                            accept="file"
+                            type="file"
+                            onChange={handleFile}
+                            className="mediaUpload"
+                          />
+                          <PermMediaIcon className="shareMediaIcon" />
+                        </IconButton>
+                      </Fab>
+                      <span className="text-danger m-3"> Photo & Video </span>
                     </div>
-                    
-                  </div>
-                  <div className="modal-footer">
-                    <Button
+
+                    <div className="modalUploadingItems">
+                      <Fab component="span" className="button">
+                        <LabelIcon className="shareMediaIcon text-primary" />
+                      </Fab>
+                      <span className="text-primary m-3"> Tag friend </span>
+                    </div>
+                    <div className="modalUploadingItems">
+                      <Fab component="span" className="button">
+                        <PlaceIcon className="shareMediaIcon text-success" />
+                      </Fab>
+                      <span className="text-success m-3 my-2"> Location </span>
+                    </div>
+
+                    <div className="modalUploadingItems">
+                      <Fab component="span" className="button">
+                        <EmojiEmotionsIcon className="shareMediaIcon text-warning" />
+                      </Fab>
+                      <span className="text-danger m-3 mt-2"> Emoji </span>
+                    </div>
+                    <div className="shareButton w-23">
+                    <button
                       type="submit"
-                      className="shareButton"
-                      variant="contained"
-                      endIcon={<SendIcon />}
-                    />
-                  </div>
+                      className="shareButton w-23"
+                    ><SendIcon className="sendIcon m-1"/></button>
+                    </div>
+
+                  </form>
                 </div>
               </div>
             </div>
