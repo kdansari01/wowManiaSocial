@@ -78,11 +78,12 @@ const Share = () => {
               className="btn btn-modal "
               data-bs-toggle="modal"
               data-bs-target="#staticBackdrop"
-            >
+            ><div className="picAndVidUpl">
               <IconButton aria-label="upload picture" component="label">
                 <PhotoCamera className="shareMediaIcon" />
               </IconButton>
-              Photo & Video
+              <span className="shareMediaTxt">Photo & Video</span>
+              </div>
             </button>
 
             <div
@@ -118,6 +119,7 @@ const Share = () => {
                       />
                       <hr />
                     </div>
+                    <div className="modalIconsWrapper">
                     <div className="modalUploadingItems">
                       <Fab component="span" className="button">
                         <IconButton
@@ -135,33 +137,35 @@ const Share = () => {
                           <PermMediaIcon className="shareMediaIcon" />
                         </IconButton>
                       </Fab>
-                      <span className="text-danger m-3"> Photo & Video </span>
+                      <span className="text-danger modalTxt m-3"> Photo & Video </span>
                     </div>
-
+          
                     <div className="modalUploadingItems">
                       <Fab component="span" className="button">
                         <LabelIcon className="shareMediaIcon text-primary" />
                       </Fab>
-                      <span className="text-primary m-3"> Tag friend </span>
+                      <span className="text-primary modalTxt m-3"> Tag friend </span>
                     </div>
                     <div className="modalUploadingItems">
                       <Fab component="span" className="button">
                         <PlaceIcon className="shareMediaIcon text-success" />
                       </Fab>
-                      <span className="text-success m-3 my-2"> Location </span>
+                      <span className="text-success modalTxt m-3 my-2"> Location </span>
                     </div>
 
                     <div className="modalUploadingItems">
                       <Fab component="span" className="button">
                         <EmojiEmotionsIcon className="shareMediaIcon text-warning" />
                       </Fab>
-                      <span className="text-danger m-3 mt-2"> Emoji </span>
+                      <span className="text-danger modalTxt m-3 mt-2"> Emoji </span>
+                    </div>
                     </div>
                     <div className="shareButton w-23">
                     <button
                       type="submit"
                       className="shareButton w-23"
-                    ><SendIcon className="sendIcon m-1"/></button>
+                    >
+                      <SendIcon className="sendIcon m-1"/></button>
                     </div>
 
                   </form>
@@ -169,13 +173,17 @@ const Share = () => {
               </div>
             </div>
           </div>
-
+          <div>
           <LabelIcon className="shareTag" />
           <span className="shareTagTxt">Tag</span>
+          </div>
+          <div>
           <PlaceIcon className="shareLocationIcon" />
           <span className="shareLocation">Location</span>
+          </div>
+          <div >
           <EmojiEmotionsIcon className="shareEmojiIcon" />
-          <span className="shareFeelTxt">feelings</span>
+          <span className="shareFeelTxt">feelings</span></div>
         </div>
       </div>
     </form>

@@ -1,3 +1,5 @@
+@media only screen and (min-width:668px) and (max-width:2000px){
+
 
 
 .topBarContainer{
@@ -22,7 +24,8 @@
 
     }
     .topBarCenter{
-        flex: 5;
+        // flex: 5;
+        display: flex;
         
         .searchBar{
             width: 100%;
@@ -39,6 +42,7 @@
             .searchInput{
                 border: none;
                 width: 70%;
+                border-radius: 20px;
                 // margin-left: 10px;
             }
             .searchInput:focus{
@@ -48,9 +52,14 @@
         }
     } 
     .topBarRight{
-        flex: 4;
+        // flex: 4;
+        display: flex;
+
         ul{
             display: flex;
+            margin-right: 40px;
+            margin-left: -20px;
+
             li{
                 list-style-type: none;
                 text-decoration: none;
@@ -58,7 +67,7 @@
                 a{
                     color: black;
                     position: relative;
-                    left: 60px;
+                    // left: 60px;
                     top: 7px;
                     font-weight: bold;
                     opacity: 0.7;
@@ -74,7 +83,14 @@
     }
     .topBarIcons{
         display: flex;
-      
+        .iconWrappers{
+            display: flex;
+            margin-left: 5px;
+
+      .homeIcon{
+        display: none;
+
+      }
         .topbarIconItem{
 
             position: relative;
@@ -84,6 +100,7 @@
             // top: px;
             cursor: pointer;
            
+            
         }
         .notificationBadge{
             width: 20px;
@@ -99,6 +116,7 @@
             right: -1px;
             top: -2px;
         }
+    }
         .profileSection{
             // display: flex;
             
@@ -132,4 +150,287 @@
             }
         }
     }
+    .hamburger{
+        display: none;
+    }
 }
+}
+
+
+
+
+
+@media only screen and (min-width:400px) and (max-width:668px){
+
+
+
+    .topBarContainer{
+        height: 50px;
+        width: 100% !important;
+        // border: 1px solid black;
+        // background: rgb(124, 198, 228);
+        display: flex;
+        align-items: center;
+        position: sticky;
+        z-index: 1;
+        top: 0;
+        .topBarLeft{
+            flex: 3;
+            .hamburger{
+                display: flex;
+            }
+            .logo1{
+              display: none;
+            }
+            
+    
+        }
+        .topBarCenter{
+            flex-wrap: wrap;
+            display: none;
+
+            
+            .searchBar{
+                width: 100%;
+                height: 30%;
+                background: white;
+                border-radius: 30px;
+                display: flex;
+                align-items: center;
+                // margin-left: 90px;
+                .searchIcon{
+                    font-size: 20px !important;
+                    margin-left: 10px !important;
+                }
+                .searchInput{
+                    border: none;
+                    width: 70%;
+
+                    // margin-left: 10px;
+                }
+                .searchInput:focus{
+                    outline: none;
+                }
+                
+            }
+        } 
+        .topBarRight{
+            flex: 4;
+            ul{
+               display: none;
+            }
+           
+        }
+        .topBarIcons{
+            display: flex;
+            .iconWrappers{
+                display: flex;
+
+          .homeIcon{
+            
+          }
+            .topbarIconItem{
+    
+                position: relative;
+                right: 79px;
+                padding: 10px;
+                // font-size: 30px;
+                // top: px;
+                cursor: pointer;
+               
+            }
+            .notificationBadge{
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                color: white;
+                font-size: 14px;
+                // font-weight: bold;
+                background:rgb(245, 51, 51);
+                text-align: center;
+                position: absolute;
+                // bottom: 1px;
+                right: -1px;
+                top: -2px;
+            }
+        }
+            .profileSection{
+                // display: flex;
+                
+                .profile-pic{
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    position: relative;
+                    right: 20px;
+                    top: 5px;
+                    object-fit: cover;
+    
+    
+                }
+                .profilePicOffCanvas{
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    object-fit: cover;
+    
+    
+    
+    
+    
+                }
+                .offcanvas-header{
+                    // background: radial-gradient(to right, #3b25e1b4, #e7008e98, #ff3a3d, #e59b06, #b1d85c);
+                    background-image: linear-gradient(to bottom, #b8c3d2, #a0b6bf, #90a8a7, #87998e, #838878);
+                }
+            }
+        }
+       
+    }
+    }
+
+
+
+
+
+@media only screen and (min-width:300px) and (max-width:400px){
+
+
+
+    .topBarContainer{
+        height: 50px;
+        width: 100% !important;
+        // border: 1px solid black;
+        // background: rgb(124, 198, 228);
+        display: flex;
+        align-items: center;
+        position: sticky;
+        z-index: 1;
+        top: 0;
+        .topBarLeft{
+            // flex: 3;
+            .hamburger{
+                display: flex;
+            }
+            .logo1{
+              display: none;
+            }
+            
+    
+        }
+        .topBarCenter{
+            display: none;
+
+            
+            .searchBar{
+                width: 100%;
+                height: 30%;
+                background: white;
+                border-radius: 30px;
+                display: flex;
+                align-items: center;
+                // margin-left: 90px;
+                .searchIcon{
+                    font-size: 20px !important;
+                    margin-left: 10px !important;
+                }
+                .searchInput{
+                    border: none;
+                    width: 70%;
+
+                    // margin-left: 10px;
+                }
+                .searchInput:focus{
+                    outline: none;
+                }
+                
+            }
+        } 
+        .topBarRight{
+            // flex: 4;
+            position: relative;;
+            ul{
+               display: none;
+            }
+           
+        }
+        .topBarIcons{
+            flex-wrap: wrap;
+            display: flex;
+            // justify-content: center !important;
+
+            .iconWrappers{
+                display: flex;
+                margin-left: 120px;
+                margin-top: auto;
+            .homeIcon{
+            // font-size: 50px;
+            // width: 40px;
+            // height: 20px;
+            
+          }
+            .topbarIconItem{
+            padding: 10px;
+    
+                position: relative;
+                right: 79px;
+                padding: 10px;
+                // font-size: 50px;
+                // top: px;
+                cursor: pointer;
+               
+            }
+            .notificationBadge{
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                color: white;
+                font-size: 14px;
+                // font-weight: bold;
+                background:rgb(245, 51, 51);
+                text-align: center;
+                position: absolute;
+                // bottom: 1px;
+                right: -1px;
+                top: -2px;
+            }
+        }
+
+            .profileSection{
+                // display: flex;
+                
+                .profile-pic{
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    position: relative;
+                    right: 20px;
+                    top: 5px;
+                    object-fit: cover;
+    
+    
+                }
+                .profilePicOffCanvas{
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    object-fit: cover;
+    
+    
+    
+    
+    
+                }
+                .offcanvas-header{
+                    // background: radial-gradient(to right, #3b25e1b4, #e7008e98, #ff3a3d, #e59b06, #b1d85c);
+                    background-image: linear-gradient(to bottom, #b8c3d2, #a0b6bf, #90a8a7, #87998e, #838878);
+                }
+            }
+        }
+        
+    }
+    }

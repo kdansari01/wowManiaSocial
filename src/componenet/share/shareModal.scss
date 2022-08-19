@@ -1,3 +1,6 @@
+@media only screen and (min-width:600px) and (max-width:2000px){
+
+
 .modal-content{
     width: 500px;
     height: 550px;
@@ -66,3 +69,173 @@
         
     }
 }
+}
+
+
+@media only screen and (min-width:420px) and (max-width:600px){
+
+
+    .modal-content{
+        padding: auto;
+        width: 100%;
+        min-height: 200px;
+        border-bottom-left-radius: 80px;
+    
+        &:hover{
+            cursor: auto;
+        }
+    
+        .modal-header{
+            background: skyblue;
+            
+            .shareProfileImg{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+            .modal-title{
+                // align-items: center;
+                margin-left: 10px;
+    
+            }
+        }
+        .modal-body{
+            .modalInputSec{
+                .modalInput{
+                    width: 100%;
+                    min-height: 100px;
+                    margin-top: -10px;
+                    margin-bottom: -10px;
+                    border: none;
+                    &:focus{
+                        outline: none;
+                        // box-shadow: 2px 2px 10px gray;
+                    }
+                }
+            }
+            .modalIconsWrapper{
+                display: flex;
+                .modalUploadingItems{
+                  display: flex;
+                  padding: 20px;
+                  flex-wrap: wrap;
+                   .modalTxt{
+                    display: none;
+                  }
+                  .mediaUpload{
+                    border: none;
+                    border-radius: 50%;
+                    &:focus{
+                        outline: none;
+    
+                    }
+                }
+            }
+        }
+
+            .shareButton{
+                background: skyblue;
+                .shareButton{
+                    border: none;
+                   
+                    &:hover{
+                        transform: translate3D(0,-1px,0) scale(1);
+    
+                    }
+                    &:focus{
+                        outline: none;
+                    }
+                }
+                .sendIcon{
+                    width: 60px;
+                }
+            }
+            
+        }
+    }
+    }
+
+
+
+@media only screen and (min-width:200px) and (max-width:420px){
+
+
+    .modal-content{
+        padding: auto;
+        width: 100%;
+        min-height: 200px;
+        border-bottom-left-radius: 80px;
+    
+        &:hover{
+            cursor: auto;
+        }
+    
+        .modal-header{
+            background: skyblue;
+            
+            .shareProfileImg{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+            .modal-title{
+                // align-items: center;
+                margin-left: 10px;
+    
+            }
+        }
+        .modal-body{
+            .modalInputSec{
+                .modalInput{
+                    width: 100%;
+                    min-height: 100px;
+                    margin-top: -10px;
+                    margin-bottom: -10px;
+                    border: none;
+                    &:focus{
+                        outline: none;
+                        // box-shadow: 2px 2px 10px gray;
+                    }
+                }
+            }
+            .modalIconsWrapper{
+                display: flex;
+                .modalUploadingItems{
+                  display: flex;
+                  padding: 10px;
+                  flex-wrap: wrap;
+                   .modalTxt{
+                    display: none;
+                  }
+                  .mediaUpload{
+                    border: none;
+                    border-radius: 50%;
+                    &:focus{
+                        outline: none;
+    
+                    }
+                }
+            }
+        }
+
+            .shareButton{
+                background: skyblue;
+                .shareButton{
+                    border: none;
+                   
+                    &:hover{
+                        transform: translate3D(0,-1px,0) scale(1);
+    
+                    }
+                    &:focus{
+                        outline: none;
+                    }
+                }
+                .sendIcon{
+                    width: 50px;
+                }
+            }
+            
+        }
+    }
+    }

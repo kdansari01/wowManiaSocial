@@ -20,13 +20,18 @@ import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import InfoIcon from '@mui/icons-material/Info';
 import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
-
+import HomeIcon from '@mui/icons-material/Home';
 import logo from "/home/kdansari/WOW/social/src/assests/logo.png";
 import { NavLink } from "react-router-dom";
+import MenuIcon from '@mui/icons-material/Menu';
+
 const TopBar = () => {
   return (
     <div className="topBarContainer">
       <div className="topBarLeft">
+      <div className="hamburger">
+      <MenuIcon/>
+      </div>
         <span className="logo">
           <img className="logo1" src={logo} alt="logo" />
         </span>
@@ -38,7 +43,7 @@ const TopBar = () => {
         </div>
       </div>
       <div className="topBarRight">
-        <ul>
+        <ul className="topBarRightWrap" >
           <li className="topBarlinks">
             <a href="/">Home</a>
           </li>
@@ -48,6 +53,10 @@ const TopBar = () => {
         </ul>
       </div>
       <div className="topBarIcons">
+        <div className="iconWrappers">
+        <div className="topbarIconItem">
+        <HomeIcon className="homeIcon"/>
+        </div>
         <div className="topbarIconItem">
           <Chat className="profileIcons" />
           <span className="notificationBadge">1</span>
@@ -60,6 +69,7 @@ const TopBar = () => {
           <PersonAddIcon className="profileIcons" />
           <span className="notificationBadge">12</span>
 
+        </div>
         </div>
         <div className="profileSection">
           <img className="profile-pic" src={Profile} alt="logo"  type="button"
@@ -159,6 +169,7 @@ const TopBar = () => {
           </div>
         </div>
       </div>
+     
     </div>
   );
 };

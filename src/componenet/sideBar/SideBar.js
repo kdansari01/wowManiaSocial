@@ -19,6 +19,7 @@ import Img from "../../assests/kd.png"
 
 const SideBar = () => {
   return (
+    <div className="containerBox">
     <div className="sideBar">
         <div className="sideBarWrapper">
             <ul className="sideBarlist">
@@ -111,7 +112,9 @@ const SideBar = () => {
               </li>
             </ul>
         </div>
-      
+     
+    </div>
+   
     </div>
   )
   

@@ -1,6 +1,9 @@
 @import "./shareModal.scss";
 
+@media only screen and (min-width:1078px) and (max-width:2000px){
+
 .share{
+    flex-wrap: wrap;
     width: 100%;
     height: 170px;
     border-radius: 10px;
@@ -9,6 +12,7 @@
 
     .shareWrapper{
         padding: 10px;
+        flex-wrap: wrap;
 
 
         .shareTop{
@@ -49,7 +53,7 @@
             }
             .shareMediaTxt{
                 color: black;
-                padding-right: 10px;
+                padding-right: 0px;
                 font-size: 17px;
                 // font-weight: bold;
 
@@ -94,5 +98,343 @@
 
         }
 
+    }
+}
+
+}
+
+
+
+
+
+@media only screen and (min-width:800px) and (max-width:1078px){
+
+.share{
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 170px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    // box-shadow: 10px 5px 10px gray;
+
+    .shareWrapper{
+        padding: 10px;
+        flex-wrap: wrap;
+
+
+        .shareTop{
+            display: flex;
+            align-items: center;
+            .shareProfileImg{
+                width: 60px;
+                height: 60px;
+                margin-right: 10px;
+                border-radius: 50%;
+                object-fit: cover;
+                cursor: pointer;
+            }
+            .shareInpt{
+                width: 80%;
+                height: 50px;
+                border: none;
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+        .shareHrline{
+            margin: 20px;
+        }
+        .shareBottom{
+            flex-wrap: wrap;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            .btn-modal{
+                border: none;
+               font-size: 17px;
+            }
+            .shareMediaIcon{
+                z-index: -1;
+
+                color: rgb(231, 37, 37);
+            }
+            .shareMediaTxt{
+                flex-wrap: wrap;
+                color: black;
+                padding-right: 10px;
+                font-size: 15px;
+                // font-weight: bold;
+
+            }
+            .shareTag{
+                color: blue;
+                cursor: pointer;
+               
+            }
+            .shareTagTxt{
+                padding-right: 10px;
+                font-size: 17px;
+            }
+            .shareLocationIcon{
+                color: green;
+                cursor: pointer;
+                padding-left: 2px;
+            }
+            .shareLocation{
+                padding-right: 15px;
+
+            }
+            .shareEmojiIcon{
+                flex-wrap: wrap;
+                color: rgb(241, 193, 102);
+                cursor: pointer;
+
+            }
+            
+        }
+        .shareButton{
+            // width: 50px;
+            // padding: 20px;
+            float: right;
+            top: -35px;
+            right: 20px;
+            z-index: -1;
+
+            // margin-left: 35px;
+            &:hover{
+                box-shadow: 3px 3px 5px gray;
+            }
+
+        }
+
+    }
+}
+
+}
+
+
+@media only screen and (min-width: 668px) and (max-width: 800px){
+    .share{
+        flex-wrap: wrap;
+        width: 100%;
+        min-height: 170px;
+        border-radius: 10px;
+        border: 1px solid gray;
+        // box-shadow: 10px 5px 10px gray;
+    
+        .shareWrapper{
+            padding: 10px;
+            flex-wrap: wrap;
+    
+    
+            .shareTop{
+                display: flex;
+                align-items: center;
+                .shareProfileImg{
+                    width: 60px;
+                    height: 60px;
+                    margin-right: 10px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    cursor: pointer;
+                }
+                .shareInpt{
+                    width: 80%;
+                    height: 50px;
+                    border: none;
+                    &:focus{
+                        outline: none;
+                    }
+                }
+            }
+            .shareHrline{
+                margin: 20px;
+            }
+            .shareBottom{
+                flex-wrap: wrap;
+                // display: flex;
+                align-items: center;
+                cursor: pointer;
+                .btn-modal{
+                    border: none;
+                   font-size: 17px;
+                }
+                .picAndVidUpl{
+                    margin-left: -17px;
+                    margin-bottom: -10px;
+               
+                .shareMediaIcon{
+                    z-index: -1;
+    
+                    color: rgb(231, 37, 37);
+                }
+                .shareMediaTxt{
+                    margin-left: -5px;
+                }
+            }
+                // .shareMediaTxt{
+                //     flex-wrap: wrap;
+                //     color: black;
+                //     padding-right: 10px;
+                //     font-size: 15px;
+                //     // font-weight: bold;
+    
+                // }
+                .shareTag{
+                    color: blue;
+                    cursor: pointer;
+                   
+                }
+                .shareTagTxt{
+                    padding-right: 10px;
+                    font-size: 17px;
+                }
+                .shareLocationIcon{
+                    color: green;
+                    cursor: pointer;
+                    padding-left: 2px;
+                }
+                .shareLocation{
+                    padding-right: 15px;
+    
+                }
+                .shareEmojiIcon{
+                    flex-wrap: wrap;
+                    color: rgb(241, 193, 102);
+                    cursor: pointer;
+    
+                }
+                
+            }
+            .shareButton{
+                // width: 50px;
+                // padding: 20px;
+                float: right;
+                top: -35px;
+                right: 20px;
+                z-index: -1;
+    
+                // margin-left: 35px;
+                &:hover{
+                    box-shadow: 3px 3px 5px gray;
+                }
+    
+            }
+    
+        }
+    }
+}
+
+@media only screen and (min-width: 200px) and (max-width: 668px){
+    .share{
+        flex-wrap: wrap;
+        width: 100%;
+        min-height: 170px;
+        border-radius: 10px;
+        border: 1px solid gray;
+        // box-shadow: 10px 5px 10px gray;
+    
+        .shareWrapper{
+            padding: 10px;
+            flex-wrap: wrap;
+    
+    
+            .shareTop{
+                display: flex;
+                align-items: center;
+                .shareProfileImg{
+                    width: 60px;
+                    height: 60px;
+                    margin-right: 10px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    cursor: pointer;
+                }
+                .shareInpt{
+                    width: 80%;
+                    height: 50px;
+                    border: none;
+                    &:focus{
+                        outline: none;
+                    }
+                }
+            }
+            .shareHrline{
+                margin: 20px;
+            }
+            .shareBottom{
+                flex-wrap: wrap;
+                display: flex;
+
+                align-items: center;
+                cursor: pointer;
+                .btn-modal{
+                    border: none;
+                   font-size: 17px;
+                }
+                .picAndVidUpl{
+                    margin-left: -17px;
+                    // margin-bottom: -10px;
+               
+                .shareMediaIcon{
+                    z-index: -1;
+    
+                    color: rgb(231, 37, 37);
+                }
+                .shareMediaTxt{
+                    margin-left: -5px;
+                }
+            }
+                // .shareMediaTxt{
+                //     flex-wrap: wrap;
+                //     color: black;
+                //     padding-right: 10px;
+                //     font-size: 15px;
+                //     // font-weight: bold;
+    
+                // }
+                .shareTag{
+                    color: blue;
+                    cursor: pointer;
+                   
+                }
+                .shareTagTxt{
+                    padding-right: 10px;
+                    font-size: 17px;
+                }
+                .shareLocationIcon{
+                    color: green;
+                    cursor: pointer;
+                    padding-left: 2px;
+                }
+                .shareLocation{
+                    padding-right: 15px;
+    
+                }
+                .shareEmojiIcon{
+                    flex-wrap: wrap;
+                    color: rgb(241, 193, 102);
+                    cursor: pointer;
+    
+                }
+                
+            }
+            .shareButton{
+                // width: 50px;
+                // padding: 20px;
+                float: right;
+                top: -35px;
+                right: 20px;
+                z-index: -1;
+    
+                // margin-left: 35px;
+                &:hover{
+                    box-shadow: 3px 3px 5px gray;
+                }
+    
+            }
+    
+        }
     }
 }
