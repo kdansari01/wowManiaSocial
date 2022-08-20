@@ -1,13 +1,6 @@
 import { SET_IS_SIGNUP } from "./constatn";
 
 const initialState = {
-//   firstname: "",
-//   lastname: "",
-//   username: "",
-//   dob: "",
-//   email: "",
-//   password: "",
-
    isSignUp:false
 };
 
