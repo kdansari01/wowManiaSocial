@@ -21,7 +21,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
 import HomeIcon from '@mui/icons-material/Home';
-import logo from "/home/kdansari/WOW/social/src/assests/logo.png";
+import logo from "../../assests/logo.png";
 import { NavLink } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
 import { useSelector } from "react-redux";
