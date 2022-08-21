@@ -1,4 +1,4 @@
-import "./signUp.scss";
+// import "./signUp.scss";
 
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -31,9 +31,6 @@ const SignUp = () => {
         method: METHODS.POST,
         body: {
           name: user.firstname,
-          // lastname: user.lastname,
-          // username: user.username,
-          // dob: user.dob,
           email: user.email,
           password: user.password,
         },
