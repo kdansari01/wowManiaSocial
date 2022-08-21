@@ -27,7 +27,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 const TopBar = () => {
   return (
-    <div className="topBarContainer">
+    <div className="topBarContainer py-5">
       <div className="topBarLeft">
       <div className="hamburger">
       <MenuIcon/>
@@ -108,10 +108,10 @@ const TopBar = () => {
             </div>
             <div className="offcanvas-body">
               <div className="profileList">
-              <div className="profilelistWrap">
+              <NavLink className="profilelistWrap text-decoration-none d-flex" to="/MyPost">
                 <CoPresentIcon className="profileIcons" />
-                <NavLink className="text-decoration-none" to="/MyPost"> My post</NavLink>
-                </div>
+                <span> My post</span>
+                </NavLink>
                 <div className="profilelistWrap">
                 <Chat className="profileIcons" />
                 <span> Messages</span>
@@ -124,22 +124,12 @@ const TopBar = () => {
                 <PlayCircleIcon className="profileIcons" />
                 <span> Video</span>
                 </div>
-                <div className="profilelistWrap">
-                <AddBusinessIcon className="profileIcons" />
-                <span> Marketplace</span>
-                </div>
-                <div className="profilelistWrap">
-                <DescriptionIcon className="profileIcons" />
-                <span> Pages</span>
-                </div>
+                
                 <div className="profilelistWrap">
                 <AccessTimeIcon className="profileIcons" />
                 <span> Memories</span>
                 </div>
-                <div className="profilelistWrap">
-                <BloodtypeIcon className="profileIcons" />
-                <span> Blood Donate</span>
-                </div>
+               
                 <div className="profilelistWrap">
                 <SettingsIcon className="profileIcons" />
                 <span> Setting</span>
@@ -160,7 +150,7 @@ const TopBar = () => {
                 <ReportProblemIcon className="profileIcons" />
                 <span> Report a problem</span>
                 </div>
-                <Button onClick={()=>{
+                <Button className='mx-3 mt-2' onClick={()=>{
                   localStorage.removeItem('token')    
                   window.location.reload()
                 }} variant="outlined">Log out</Button>

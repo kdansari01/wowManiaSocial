@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from "react";
+import moment from 'moment'
 
 
 const options = [
@@ -19,7 +20,9 @@ const options = [
 ];
 
 
-
+const getFormattedTime = (time)=>{
+  return moment(new Date(time)).startOf('minute').fromNow();  
+}
 
 
 const Post = ({ title, image, createdAt, createdBy }) => {
@@ -41,7 +44,7 @@ const Post = ({ title, image, createdAt, createdBy }) => {
           <div className="postTopLeft">
             <img className="postUserImg" src={Profile} alt="profile"/>
             <span className="postUserName">{createdBy.name}</span>
-            <span className="postTime">{createdAt}</span>
+            <span className="postTime">{getFormattedTime(createdAt)}</span>
           </div>
           <div className="postTopRight">
           
@@ -58,6 +61,7 @@ const Post = ({ title, image, createdAt, createdBy }) => {
         <MoreVertIcon className="postHamburger" />
       </IconButton>
       <Menu
+        direction='left'
         id="long-menu"
         MenuListProps={{
           'aria-labelledby': 'long-button',
@@ -85,7 +89,9 @@ const Post = ({ title, image, createdAt, createdBy }) => {
         <div className="postCenter">
           <span className="postText">{title}</span>
           <div className="postImgWrapper">
-          <img className="postImg" src={image} alt="post"/>
+            {image && <img className="postImg" src={image} alt="post"/>}
+      
+          
 
           </div>
         </div>

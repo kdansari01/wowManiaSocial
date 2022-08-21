@@ -3,50 +3,56 @@ import "./share.scss";
 import Img from "../../assests/kd.png";
 import IconButton from "@mui/material/IconButton";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
-import LabelIcon from "@mui/icons-material/Label";
-import PlaceIcon from "@mui/icons-material/Place";
-import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
-import AddPhotoAlternateIcon from "@mui/icons-material/EmojiEmotions";
 import PermMediaIcon from "@mui/icons-material/PermMedia";
 
-import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
-import { useEffect, useState } from "react";
+import { useEffect, useState , useRef} from "react";
 import { customFetch, METHODS } from "../../utils/customFetch";
 import { useUploadImage } from "../../Hooks/useImageUploader";
 import { Fab, Icon } from "@mui/material";
 
 const Share = () => {
-  const [title, setTitle] = useState();
-  const [image, setImage] = useState();
-  const { handleUpload, url, loading } = useUploadImage();
-
+  const [title, setTitle] = useState("");
+  const [previewUrl, setPreview] = useState(null)
+  const { handleUpload, url, loading, percentage } = useUploadImage();
+  const closeRef= useRef(null)
+  const preview = previewUrl ? URL.createObjectURL(previewUrl) : null
   const handleFile = (e) => {
     const file = e.target.files[0];
-    handleUpload({ file });
-  };
+    // handleUpload({ file });
+    setPreview(file)
 
-  console.log({ loading, url });
+  };
+  const savePost = async(title, image)=>{
+   await customFetch({
+      url: "private/post",
+      method: METHODS.POST,
+      isPrivate: true,
+      body: {
+        title,
+        ...(image && { image }),
+      },
+    });
+    closeRef.current.click()
+  }
+
+  console.log({ loading, url, percentage });
   useEffect(() => {
-    if (!loading && url) {
-      setImage(url);
+    if (!loading && url && percentage===100) {
+      savePost(title, url)
     }
-  }, [loading, url]);
+  }, [loading, percentage]);
+
+  
 
   const saveNewPost = async (e) => {
     e.preventDefault();
-    console.log(title, image);
-    if (title && image) {
-      const data = await customFetch({
-        url: "private/post",
-        method: METHODS.POST,
-        isPrivate: true,
-        body: {
-          title,
-          image,
-        },
-      });
-      console.log(data);
+    e.stopPropagation();
+    if (title) {
+      if(previewUrl){
+       return handleUpload({file : previewUrl})
+      }
+     return savePost(title)
     }
   };
 
@@ -78,11 +84,12 @@ const Share = () => {
               className="btn btn-modal "
               data-bs-toggle="modal"
               data-bs-target="#staticBackdrop"
-            ><div className="picAndVidUpl">
-              <IconButton aria-label="upload picture" component="label">
-                <PhotoCamera className="shareMediaIcon" />
-              </IconButton>
-              <span className="shareMediaTxt">Photo & Video</span>
+            >
+              <div className="picAndVidUpl">
+                <IconButton aria-label="upload picture" component="label">
+                  <PhotoCamera className="shareMediaIcon" />
+                </IconButton>
+                <span className="shareMediaTxt">Photo & Video</span>
               </div>
             </button>
 
@@ -108,82 +115,63 @@ const Share = () => {
                       className="btn-close"
                       data-bs-dismiss="modal"
                       aria-label="Close"
+                      ref={closeRef}
                     ></button>
                   </div>
-                  <form className="modal-body">
+                  <div className="modal-body">
                     <div className="modalInputSec">
                       <input
                         type="text"
                         className="modalInput"
                         placeholder="Type here somethings........"
+                        onChange={(e) => setTitle(e.target.value)}
                       />
                       <hr />
                     </div>
                     <div className="modalIconsWrapper">
-                    <div className="modalUploadingItems">
-                      <Fab component="span" className="button">
-                        <IconButton
-                          color="primary"
-                          aria-label="upload picture"
-                          component="label"
-                        >
-                          <input
-                            hidden
-                            accept="file"
-                            type="file"
-                            onChange={handleFile}
-                            className="mediaUpload"
-                          />
-                          <PermMediaIcon className="shareMediaIcon" />
-                        </IconButton>
-                      </Fab>
-                      <span className="text-danger modalTxt m-3"> Photo & Video </span>
+                      {!preview &&  <div className="modalUploadingItems">
+                        <Fab component="span" className="button">
+                          <IconButton
+                            color="primary"
+                            aria-label="upload picture"
+                            component="label"
+                          >
+                            <input
+                              hidden
+                              accept="file"
+                              type="file"
+                              onChange={handleFile}
+                              className="mediaUpload"
+                            />
+                            <PermMediaIcon className="shareMediaIcon" />
+                          </IconButton>
+                        </Fab>
+                        <span className="text-danger modalTxt m-3">
+                          Photo & Video{" "}
+                        </span>
+                      </div>}
+                      {loading && <div class="progress">
+                        <div className="progress-bar" role="progressbar" style={{width: `${percentage}%`}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>  }
+                      
                     </div>
-          
-                    <div className="modalUploadingItems">
-                      <Fab component="span" className="button">
-                        <LabelIcon className="shareMediaIcon text-primary" />
-                      </Fab>
-                      <span className="text-primary modalTxt m-3"> Tag friend </span>
-                    </div>
-                    <div className="modalUploadingItems">
-                      <Fab component="span" className="button">
-                        <PlaceIcon className="shareMediaIcon text-success" />
-                      </Fab>
-                      <span className="text-success modalTxt m-3 my-2"> Location </span>
-                    </div>
-
-                    <div className="modalUploadingItems">
-                      <Fab component="span" className="button">
-                        <EmojiEmotionsIcon className="shareMediaIcon text-warning" />
-                      </Fab>
-                      <span className="text-danger modalTxt m-3 mt-2"> Emoji </span>
-                    </div>
-                    </div>
-                    <div className="shareButton w-23">
-                    <button
-                      type="submit"
-                      className="shareButton w-23"
-                    >
-                      <SendIcon className="sendIcon m-1"/></button>
-                    </div>
-
-                  </form>
+                   {preview &&  <div className="row mt-3 col-6 preview-container">
+                      <img src={preview} className='h-50'/>
+                      <span onClick={()=>setPreview(null)}>X</span>
+                    </div>}
+                    <div className="shareButton w-23 mt-3">
+                      <button type='button' onClick={saveNewPost} className="shareButton" >
+                        <SendIcon className="sendIcon w-100" />
+                        </button>                   
+                       </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div>
-          <LabelIcon className="shareTag" />
-          <span className="shareTagTxt">Tag</span>
-          </div>
-          <div>
-          <PlaceIcon className="shareLocationIcon" />
-          <span className="shareLocation">Location</span>
-          </div>
-          <div >
-          <EmojiEmotionsIcon className="shareEmojiIcon" />
-          <span className="shareFeelTxt">feelings</span></div>
+          {/* <button type="submit" onClick={saveNewPost} className="shareButton outside">
+            <SendIcon className="sendIcon m-1" />
+          </button> */}
         </div>
       </div>
     </form>

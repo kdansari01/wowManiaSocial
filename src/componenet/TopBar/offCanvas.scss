@@ -16,18 +16,18 @@
         padding: 10px;
         display: block;
         width: 400px;
+        color:black;
+        display:flex;
+        align-items: center;
+        & span {
+          margin-left:10px;
+        }
         // margin-bottom: 10px;
         &:hover {
           // background: rgb(238, 219, 137);
-          background: linear-gradient(
-            to left,
-            #0519377c,
-            #004d7a94,
-            #0087939d,
-            #00bf73a9,
-            #a8eb12
-          );
+          background-image: var(--gradient);
           cursor: pointer;
+          color:white;
         }
         .profileIcons {
           font-size: 30px;

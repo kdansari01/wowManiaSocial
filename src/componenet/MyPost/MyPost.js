@@ -5,6 +5,9 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CommentIcon from '@mui/icons-material/Comment';
 import SendIcon from '@mui/icons-material/Send';
 import BackgroundImg from "../../assests/background.jpg"
+import Feed from "../feed/Feed";
+import { customFetch } from "../../utils/customFetch";
+import { useEffect } from "react";
 // import { customFetch } from "../../utils/customFetch";
 // import { useEffect, useState } from "react";
 
@@ -13,28 +16,18 @@ import BackgroundImg from "../../assests/background.jpg"
 
 const MyPost = () => {
 
-  // const [posts, setPosts] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false)
-
-  // const getPosts = async () => {
-  //   try {
-  //     setIsLoading(true)
-  //     const post = await customFetch({
-  //       url: "private/post",
-  //       isPrivate: true,
-  //     });
-  //     setPosts(post.data);
-  //   } catch {
-  //     alert("Something went wrong");
-  //   }finally{
-  //     setIsLoading(false)
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getPosts();
-  // }, []);
-
+  // getUser
+  useEffect(()=>{
+    async function getUser (){
+      const user = await customFetch({
+        url: `private/user/getUser`,
+        isPrivate: true,
+      });
+      console.log(user)
+    }
+    getUser()
+    
+  }, [])
 
 
   return (
@@ -63,44 +56,7 @@ const MyPost = () => {
             
 
           </div>
-          <div className="myPostListSections">
-           
-             <div className="myPostItem">
-
-              <div className="postTop">
-                <div className="postTopLeft">
-
-                  <img className="postUserImg" src={Profile} alt="profile" />
-                  <span className="postUserName"></span>
-                  <span className="postTime"></span>
-                </div>
-                <div className="postTopRight">
-                  <MoreVertIcon className="postHamburger " />
-                </div>
-              </div>
-              <div className="postCenter">
-                <span className="postText">kdansari</span>
-                <div className="postImgWrapper">
-                {/* {isLoading && "loding..."}
-            {posts.map((post)=>{
-              <ul>
-              <li> {post.title}</li>
-              <li> {post.createdA}</li>
-
-              </ul>
-            })} */}
-                  <img className="postImg" src={Profile}alt="post" />
-                </div>
-              </div>
-              <div className="postBottom">
-                <FavoriteBorderIcon className="postLikeHert" />
-                <CommentIcon className="postComment" />
-                <SendIcon className="postSend" />
-
-                <div className="postLikePeople">32 like & 10 comment</div>
-              </div>
-            </div>
-          </div>
+          <Feed feedName={'post/myPost'}/>
         </div>
       </div>
     </div>

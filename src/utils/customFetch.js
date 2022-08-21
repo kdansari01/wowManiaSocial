@@ -26,6 +26,11 @@ export const customFetch = async (options = {})=>{
 
         const response = await fetch(`${BASE_URL}${url}`, newOption)
         const data = await response.json()
+        if(response.status===401){
+            localStorage.clear()
+            window.location.reload()
+            window.open("/login", self)
+        }
         if(response.status === 200){
             return data
         }

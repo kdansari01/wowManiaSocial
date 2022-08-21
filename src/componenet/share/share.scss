@@ -91,6 +91,11 @@
             right: 20px;
             z-index: -1;
 
+            &.outside{
+                position: absolute;
+                top:10px !important;
+                right:10% !important;
+            }
             // margin-left: 35px;
             &:hover{
                 box-shadow: 3px 3px 5px gray;
@@ -120,6 +125,7 @@
     .shareWrapper{
         padding: 10px;
         flex-wrap: wrap;
+        position:relative;
 
 
         .shareTop{
@@ -436,5 +442,19 @@
             }
     
         }
+    }
+}
+.preview-container {
+    position: relative;
+    width:200px;
+    & > img {
+        object-fit: cover;
+    }
+    & > span {
+        position:absolute;
+        left:90%;
+        top:-10px;
+        font-size: 20px;
+        cursor:pointer;
     }
 }

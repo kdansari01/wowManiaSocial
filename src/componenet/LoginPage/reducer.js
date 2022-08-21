@@ -3,6 +3,7 @@ import { SET_IS_LOGIN } from "./constants"
 
 const initialState = {
     isLoggedIn : false,
+    posts:[],
 }
 
 export const loginReducer = (state = initialState, action)=>{

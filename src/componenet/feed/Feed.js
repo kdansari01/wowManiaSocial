@@ -4,7 +4,7 @@ import Post from "../Post/post";
 import Share from "../share/Share";
 import "./feed.scss";
 
-const Feed = () => {
+const Feed = ({feedName }) => {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
 
@@ -12,7 +12,7 @@ const Feed = () => {
     try {
       setIsLoading(true)
       const post = await customFetch({
-        url: "private/post",
+        url: `private/${feedName}`,
         isPrivate: true,
       });
       setPosts(post.data);
@@ -40,5 +40,10 @@ const Feed = () => {
     </div>
   );
 };
+
+Feed.defaultProps = {
+  feedName: "post",
+}
+
 
 export default Feed;

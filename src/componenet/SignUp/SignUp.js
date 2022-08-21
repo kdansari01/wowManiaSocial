@@ -3,23 +3,17 @@ import "./signUp.scss";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import logo from "../../assests/logo.png";
-// import Gif from "../../Data/68312-login.gif"
-import React, { useEffect, useRef, useState } from "react";
-import lottie from "lottie-web";
+import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { customFetch, METHODS } from "../../utils/customFetch";
-
+import Auth from "../auth";
 
 const SignUp = () => {
-
   const navigate = useNavigate();
-
 
   const [user, setUser] = useState({
     firstname: "",
-    lastname: "",
     username: "",
-    dob: "",
     email: "",
     password: "",
   });
@@ -30,15 +24,13 @@ const SignUp = () => {
   console.clear();
   console.log(user);
 
-
-
   const signUpApi = async () => {
     try {
-       await customFetch({
+      await customFetch({
         url: "user/signup",
         method: METHODS.POST,
         body: {
-          name: user.firstname + user.lastname,
+          name: user.firstname,
           // lastname: user.lastname,
           // username: user.username,
           // dob: user.dob,
@@ -46,10 +38,10 @@ const SignUp = () => {
           password: user.password,
         },
       });
-      alert('Signup completed. Redirecting to login page.')
+      alert("Signup completed. Redirecting to login page.");
       navigate("/login");
     } catch (e) {
-      alert(e.message)
+      alert(e.message);
     }
   };
   const handleSubmit = (e) => {
@@ -57,66 +49,34 @@ const SignUp = () => {
     signUpApi();
   };
 
-  // useEffect(() => {
-  //   // const haveToken = !!localStorage.getItem("token");
-  //   // if (haveToken) {
-  //   //   navigate("/");
-  //   // }
-  //   data()
-  // }, []);
-
-
-
-  const container = useRef(null);
-  useEffect(() => {
-    lottie.loadAnimation({
-      container: container.current,
-      renderer: "svg",
-      loop: true,
-      autoplay: true,
-      animationData: require("../../AnimationData/107385-login.json"),
-    });
-  }, []);
   return (
-    <div className="signUpPage">
-      <div className="signUpPageWrapper">
-        <div className="signUp_Page_Left">
-          <div className="signPageAnimation" ref={container}>
-            {/* <img src={Gif} alt="Loding..." className="loginPageGif"/> */}
-          </div>
+    <Auth>
+      <div className="login_Page_Right d-flex justify-content-center w-100">
+        <div className='w-75'>
+        <div className="login-logo-section">
+          <img src={logo} alt="logo" className="loginLogo" />
         </div>
-        <div className="signUp_Page_Right">
-          <div className="signUp-logo-section">
-            <img src={logo} alt="logo" className="signUpLogo" />
-          </div>
 
-          <div className="signUp-section">
-            <h3 className="signUpHead">Sign Up</h3>
-            <hr className="signUp-hr-line" />
+        <div className="signUp-section ">
+          <h3 className="signUpHead text-center">Sign Up</h3>
+          <hr className="signUp-hr-line" />
 
-            <form className="signUpBox " onSubmit={handleSubmit}>
+          <form className="signUpBox row" onSubmit={handleSubmit}>
+            <div className="col-12">
               <TextField
-                className="signUpUserName col-6 "
+                className="signUpUserName w-100 mb-3"
                 id="outlined-basic"
-                label="firstname"
+                label="Name"
                 variant="outlined"
                 name="firstname"
                 onChange={handleChange}
                 required
               />
+            </div>
 
+            <div className="col-12">
               <TextField
-                className="signUpUserName col-6 "
-                id="outlined-basic"
-                label="lastname"
-                variant="outlined"
-                name="lastname"
-                onChange={handleChange}
-                required
-              />
-
-              <TextField
-                className="signUpUserName col-6"
+                className="signUpUserName w-100 mb-3"
                 id="outlined-basic"
                 label="Username"
                 variant="outlined"
@@ -124,18 +84,12 @@ const SignUp = () => {
                 name="username"
                 onChange={handleChange}
               />
+            </div>
 
-              <TextField
-                className="signUpUserName col-6 "
-                id="outlined-basic"
-                type="date"
-                variant="outlined"
-                name="dob"
-                onChange={handleChange}
-              />
 
+            <div className="col-12">
               <TextField
-                className="signUpUserName col-6 "
+                className="signUpUserName w-100 mb-3"
                 id="outlined-basic"
                 label="Email"
                 type="email"
@@ -144,9 +98,10 @@ const SignUp = () => {
                 name="email"
                 onChange={handleChange}
               />
-
+            </div>
+            <div className="col-12">
               <TextField
-                className="signUpPassword col-6"
+                className="signUpPassword w-100 mb-3 "
                 id="outlined-basic"
                 label="Password"
                 variant="outlined"
@@ -155,27 +110,23 @@ const SignUp = () => {
                 name="password"
                 onChange={handleChange}
               />
-
-              <div className="loginBtn">
-                <Button type='submit' variant="contained" className="col-12">
-                  Sign Up
-                </Button>
-              </div>
-            </form>
-            <div className="loginPageSignUp">
-              <p className="GoForLogin">Have you account? </p>
-              <NavLink to="/Login" className="loginLink">
-                Login
-              </NavLink>
             </div>
-            {/* <div className='login_Forget'>
-                <p className="Go_for_Forget">forget password</p> 
-              
-              </div> */}
+
+            <div className="loginBtn">
+              <Button type="submit" variant="contained" className="col-12 py-2">
+                Sign Up
+              </Button>
+            </div>
+          </form>
+          <div className="loginPageSignUp">
+            <p className="GoForLogin mt-2">Have you account? </p>
+            <NavLink to="/Login" className="loginLink mx-2 mt-2">
+              Login
+            </NavLink>
           </div>
         </div>
-      </div>
-    </div>
+      </div></div>
+    </Auth>
   );
 };
 

@@ -1,3 +1,9 @@
+:root {
+  --gradient:linear-gradient(to bottom, #b8c3d2, #a0b6bf, #90a8a7, #87998e, #838878);
+}
+
+
+  
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
