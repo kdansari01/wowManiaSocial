@@ -59,12 +59,10 @@ box-sizing: border-box;
                 .loginHead{
                     text-align: center;
                     font-weight: bold;
-                    // font-size: 40px;
                     color: rgba(131, 86, 34, 0.952);
                 }
                 .loginBox{
-                    // position: relative;
-                //  float: right;
+                 float: right;
                 padding: 10px;
 
                 
@@ -83,22 +81,15 @@ box-sizing: border-box;
             }
             .loginPageSignUp{
                 display: flex;
-
-                // padding: 5px;
+                margin-top: 10%;
+                margin-left: 5%;
                 .GoForSignUp{
-                    font-size: 15px;
-                    margin-left: 15px;
+                    // font-size: 15px;
+                    // margin-left: 15px;
                 }
 
                 .signUpLink{
-                    margin-left: 5px;
-                    cursor: pointer;
-                    color: blue;
-                    // font-size: 16px;
-                    font-weight: bold;
                     text-decoration: none;
-                    
-
 
                     &:hover{
                         text-decoration: underline;
@@ -107,14 +98,10 @@ box-sizing: border-box;
 
             }
             .login_Forget{
-                position: relative;
+                display: flex;
                 .Go_for_Forget{
-                    float: right;
-                    // top:-10px;
-                    margin-top: -39px;
-                    font-size: 15px;
-                    margin-right: 15px;
                     opacity: 0.7;
+                    margin-left: 5%;
                     &:hover{
                         cursor: pointer;
                         text-decoration: underline;
@@ -161,22 +148,13 @@ box-sizing: border-box;
                 display: none;
             }
             .login_Page_Right{
-                margin-top: 150px;
                 background: white;
-
-                // border: 1px solid gray;
-                // box-shadow: 5px 5px 10px (linear-gradient(to bottom, #b8c3d2, #a0b6bf, #90a8a7, #87998e, #838878));
-                box-shadow: 9px 11px 23px 0px rgb(19, 19, 20);
-                border-radius: 40px;
-                width: 80%;
+                margin-top: 34%;
                 min-height: 400px;
-    
                 .login-logo-section{
-                    //  align-items: center;
-                    display: flex;
+                     display: flex;
                      justify-content: center !important;
                      padding: 10px;
-                    //  border: 1px solid gray;
     
                     .loginLogo{
                         width: 40px;
@@ -197,55 +175,25 @@ box-sizing: border-box;
                     .loginHead{
                         text-align: center;
                         font-weight: bold;
-                        // font-size: 40px;
                         color: rgba(131, 86, 34, 0.952);
                     }
-                    .loginBox{
-                        // position: relative;
-                    //  float: right;
-                    // padding: 10px;
-    
-                    
-                       .loginUserName{
-                        // padding: 10px;
-                        // min-width: 100%;
-                        // height: 20px;
-
-
-                     
-                      }
-                       .loginPassword{
-                        // padding: 10px;
-                        // width: 100%;
-                        // height: 20px;
-
-                       }
-    
                         .loginBtn{
                           font-size:16px; 
                         }
                     }
                 }
                 .loginPageSignUp{
-                    // display: flex;
-    
-                    padding: 5px;
+                    display: flex;
+                    margin-top: 10%;
+                    margin-left: 5%;
                     .GoForSignUp{
-                        font-size: 15px;
-                        margin-left: 15px;
+                        // font-size: 15px;
+                        // margin-left: 15px;
                     }
     
                     .signUpLink{
-                        margin-left: 5px;
-                        margin-top: 10px;
-                        cursor: pointer;
-                        color: blue;
-                        // font-size: 16px;
-                        font-weight: bold;
                         text-decoration: none;
-                        
-    
-    
+
                         &:hover{
                             text-decoration: underline;
                         }
@@ -253,15 +201,10 @@ box-sizing: border-box;
     
                 }
                 .login_Forget{
-                    // position: relative;
-                    // display: flex;
+                    display: flex;
                     .Go_for_Forget{
-                        float: right;
-                        // top:-10px;
-                        margin-top: -12px;
-                        font-size: 15px;
-                        margin-right: 15px;
                         opacity: 0.7;
+                        margin-left: 5%;
                         &:hover{
                             cursor: pointer;
                             text-decoration: underline;
@@ -278,7 +221,6 @@ box-sizing: border-box;
         
     }
 
-}
 
 
 @media only screen and (min-width:800px) and (max-width:1000px){
@@ -363,9 +305,7 @@ box-sizing: border-box;
                          
                           }
                            .loginPassword{
-                            // margin-bottom: 10px;
-                            // width: 100%;
-                            // height: 70px;
+                          
                             margin-left: 40px;
                             width: 80%;
     

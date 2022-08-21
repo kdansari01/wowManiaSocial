@@ -1,7 +1,7 @@
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import logo from "../../assests/logo.png";
-import "./login.scss";
+// import "./login.scss";
 // import Gif from "../../Data/68312-login.gif"
 import React, { useEffect, useRef, useState } from "react";
 import lottie from "lottie-web";
@@ -74,7 +74,8 @@ const Login = () => {
 
   return (
     <Auth>
-      <div className="login_Page_Right">
+      <div className="login_Page_Right d-flex justify-content-center w-100 ">
+        <div className="w-75">
         <div className="login-logo-section">
           <img src={logo} alt="logo" className="loginLogo" />
         </div>
@@ -137,6 +138,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+    </div>
     </Auth>
   );
 };

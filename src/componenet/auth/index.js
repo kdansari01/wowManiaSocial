@@ -22,10 +22,10 @@ export const Auth = ({ children }) => {
   return (
     <section className="loginPage overflow-hidden">
       <main className="loginPageWrapper row overflow-hidden">
-        <aside className="login_Page_Left col-7">
+        <aside className="login_Page_Left col-lg-7">
           <div className="loginPageAnimation" ref={container} />
         </aside>
-        <div className="col-5 align-items-center d-flex">{children}</div>
+        <div className=" col-lg-5 col-12 align-items-center d-flex">{children}</div>
       </main>
     </section>
   );
