@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import { customFetch } from "../../utils/customFetch";
+import {useDispatch, useSelector} from 'react-redux'
 import Post from "../Post/post";
 import Share from "../share/Share";
 import "./feed.scss";
+import { setAllPost } from "./action";
 
 const Feed = ({feedName }) => {
-  const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
+  const dispatch = useDispatch();
+  const posts = useSelector(state=>state.post.posts);
 
   const getPosts = async () => {
     try {
@@ -15,7 +18,7 @@ const Feed = ({feedName }) => {
         url: `private/${feedName}`,
         isPrivate: true,
       });
-      setPosts(post.data);
+      dispatch(setAllPost(post.data))
     } catch {
       alert("Something went wrong");
     }finally{

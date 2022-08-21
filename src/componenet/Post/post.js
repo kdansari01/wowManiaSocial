@@ -9,15 +9,12 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from "react";
 import moment from 'moment'
+import { customFetch } from "../../utils/customFetch";
+import { setAllPost } from "../feed/action";
+import { useDispatch , useSelector} from "react-redux";
 
 
-const options = [
-  'Save post',
-  'Share',
-  'Delete post',
-  'Unfollow',
-  'Report the post',
-];
+
 
 
 const getFormattedTime = (time)=>{
@@ -25,9 +22,10 @@ const getFormattedTime = (time)=>{
 }
 
 
-const Post = ({ title, image, createdAt, createdBy }) => {
-
+const Post = ({id, title, image, createdAt, createdBy }) => {
+  const dispatch = useDispatch()
   const [anchorEl, setAnchorEl] = useState(null);
+  const user = useSelector(state=>state.login.user)
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -35,6 +33,24 @@ const Post = ({ title, image, createdAt, createdBy }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleDelete = async ()=>{
+    handleClose()
+    const data = await customFetch({
+      method:'DELETE',
+      url:`private/post?id=${id}`,
+      isPrivate:true,
+    })
+    dispatch(setAllPost(data.remainingPosts))
+  }
+
+  console.log(user, createdBy)
+
+  const options = [
+    {name:"Share", onClick:handleClose},
+    ...(user.id===createdBy.id ?  [{name:"Delete", onClick:handleDelete}] : []),
+    {name:"Share", onClick:handleClose},
+];
 
   
   return (
@@ -78,21 +94,18 @@ const Post = ({ title, image, createdAt, createdBy }) => {
           },
         }}
       >
-        {options.map((option) => (
-          <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
-            {option}
+        {options.map(({ name, onClick}) => (
+          <MenuItem key={name} onClick={onClick}>
+            {name}
           </MenuItem>
         ))}
         </Menu>
       </div>
         </div>
         <div className="postCenter">
-          <span className="postText">{title}</span>
+          <span className="postText mt-4 d-block">{title}</span>
           <div className="postImgWrapper">
-            {image && <img className="postImg" src={image} alt="post"/>}
-      
-          
-
+            {image && <img className="postImg" src={image} alt="post"/>}      
           </div>
         </div>
         <div className="postBottom">

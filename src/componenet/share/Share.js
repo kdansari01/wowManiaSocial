@@ -9,13 +9,16 @@ import SendIcon from "@mui/icons-material/Send";
 import { useEffect, useState , useRef} from "react";
 import { customFetch, METHODS } from "../../utils/customFetch";
 import { useUploadImage } from "../../Hooks/useImageUploader";
-import { Fab, Icon } from "@mui/material";
+import { Fab } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { setPost } from "../feed/action";
 
 const Share = () => {
   const [title, setTitle] = useState("");
   const [previewUrl, setPreview] = useState(null)
   const { handleUpload, url, loading, percentage } = useUploadImage();
   const closeRef= useRef(null)
+  const dispatch = useDispatch()
   const preview = previewUrl ? URL.createObjectURL(previewUrl) : null
   const handleFile = (e) => {
     const file = e.target.files[0];
@@ -24,7 +27,7 @@ const Share = () => {
 
   };
   const savePost = async(title, image)=>{
-   await customFetch({
+  const data =  await customFetch({
       url: "private/post",
       method: METHODS.POST,
       isPrivate: true,
@@ -33,6 +36,7 @@ const Share = () => {
         ...(image && { image }),
       },
     });
+    dispatch(setPost(data))
     closeRef.current.click()
   }
 

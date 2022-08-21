@@ -14,6 +14,13 @@
     top: 0;
     .topBarLeft{
         flex: 3;
+        .hamburger{
+            display: none;
+            .hamburgerIcon{
+                display: none;
+            }
+
+        }
         .logo1{
             width: 70px;
             height: 70px;
@@ -167,12 +174,12 @@
     .topBarContainer{
         height: 50px;
         width: 100% !important;
-        // border: 1px solid black;
+        border-bottom: 1px solid rgb(185, 181, 181);
         // background: rgb(124, 198, 228);
         display: flex;
         align-items: center;
         position: sticky;
-        z-index: 1;
+        z-index: 2;
         top: 0;
         .topBarLeft{
             flex: 3;
@@ -302,18 +309,20 @@
 
     .topBarContainer{
         height: 50px;
-        width: 100% !important;
+        width: 100% ;
         // border: 1px solid black;
         // background: rgb(124, 198, 228);
         display: flex;
         align-items: center;
+        border-bottom: 1px solid rgb(185, 181, 181);
         position: sticky;
-        z-index: 1;
+        z-index: 2;
         top: 0;
         .topBarLeft{
             // flex: 3;
             .hamburger{
                 display: flex;
+
             }
             .logo1{
               display: none;

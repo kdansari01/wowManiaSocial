@@ -1,62 +1,49 @@
 import "./myPost.scss";
 import Profile from "../../assests/kd.png"
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import CommentIcon from '@mui/icons-material/Comment';
-import SendIcon from '@mui/icons-material/Send';
+
 import BackgroundImg from "../../assests/background.jpg"
 import Feed from "../feed/Feed";
-import { customFetch } from "../../utils/customFetch";
-import { useEffect } from "react";
-// import { customFetch } from "../../utils/customFetch";
-// import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 
 
 
 const MyPost = () => {
 
-  // getUser
-  useEffect(()=>{
-    async function getUser (){
-      const user = await customFetch({
-        url: `private/user/getUser`,
-        isPrivate: true,
-      });
-      console.log(user)
-    }
-    getUser()
-    
-  }, [])
-
+ const user = useSelector(state=>state.login.user)
+  
 
   return (
-    <div className="myPost">
-      <div className="myPostWrapper">
-        <div className="myPostBody">
+    <div className="myPost row">
+      <div className="myPostWrapper col-12">
+        <div className="myPostBody ">
 
           <div className="myPostTopBar">
             <div className="myPostTopBarSection">
                 <div className="backgroundImg">
                     <img src={BackgroundImg} alt="/" className="profilebackgroundImg"/>
                 </div>
-                <div className="myPostTopBarProfile">
-                    <div className="myPostTopBarProfileBG">
-                    <img src={Profile} alt="/" className="myPostTopBarProfileImg"/>
-                    <div className="myPostTopBarUserName">KD Ansari</div>
-                    <div className="myPostTopBarProfileAbout">
-                    {/* “Think in the morning. Act in the noon. Eat in the evening. Sleep in the night.” */}
 
-                    </div>
+
+                <div className="row col-12 justify-content-center">
+                    <div className="profile-card col-lg-6 col-12 col-md-6 d-flex justify-content-center">
+                      <div className="d-flex align-items-center flex-column">
+                      <img src={Profile} alt="/" className="profile-image"/>
+                      <span className="mt-4">Name : {user.name}</span>
+                      <span className="mt-2">Email : {user.email}</span>
+                      </div>
                     </div>
                 </div>
+
             </div>
           </div>
-          <div className="myPostLeftBar">
-            
-
+          {/* <div className="myPostLeftBar">
+          </div> */}
+          <div className="d-flex col-12 justify-content-center">
+            <div className="col-12 col-md-12 col-lg-6">
+              <Feed feedName={'post/myPost'}/>
           </div>
-          <Feed feedName={'post/myPost'}/>
+          </div>
         </div>
       </div>
     </div>

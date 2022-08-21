@@ -1,9 +1,8 @@
-import { SET_IS_LOGIN } from "./constants"
-
+import { SET_IS_LOGIN, SET_USER } from "./constants"
 
 const initialState = {
     isLoggedIn : false,
-    posts:[],
+    user:{}
 }
 
 export const loginReducer = (state = initialState, action)=>{
@@ -12,6 +11,11 @@ export const loginReducer = (state = initialState, action)=>{
             return {
                 ...state,
                 isLoggedIn:action.payload
+            }
+        case SET_USER:
+            return {
+                ...state,
+                user:action.payload,
             }
         default:
             return state

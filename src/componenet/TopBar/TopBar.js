@@ -24,13 +24,16 @@ import HomeIcon from '@mui/icons-material/Home';
 import logo from "/home/kdansari/WOW/social/src/assests/logo.png";
 import { NavLink } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
+import { useSelector } from "react-redux";
 
 const TopBar = () => {
+  const user = useSelector(state=>state.login.user)
+
   return (
     <div className="topBarContainer py-5">
       <div className="topBarLeft">
-      <div className="hamburger">
-      <MenuIcon/>
+      <div className="hamburger d-flex ">
+      <MenuIcon className="hamburgerIcon"/>
       </div>
         <span className="logo">
           <img className="logo1" src={logo} alt="logo" />
@@ -97,7 +100,7 @@ const TopBar = () => {
              <img className="profilePicOffCanvas" src={Profile} alt="logo"/>
               
               <h5 className="offcanvas-title" id="offcanvasRightLabel">
-                kdansari
+                {user.name}
               </h5>
               <button
                 type="button"
